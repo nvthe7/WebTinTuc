@@ -1,0 +1,317 @@
+{% extends 'home/layout.html' %}
+{% block content %}
+<ul class="menu1">
+        <li><a class="active" href="{% url 'homepage' %}">Home</a></li>
+        {% if category %}
+            {% for i in category %}
+                <li><a href="{% url 'category' i.Id %}">{{i.CategoryName}}</a></li>
+            {% endfor %}
+        {% endif %}
+</ul>
+
+  <section id="newsSection">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="latest_newsarea"> <span>THỜI SỰ</span>
+            <ul id="ticker01" class="news_sticker"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="sliderSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick_slider">
+
+        <!--============-->
+            {% if post %}
+                {% for i in post %}
+                    {% if i.CategoryId.CategoryName == "Thời sự" %}
+                          <div class="single_iteam"> <a href="{% url 'detail' i.Id %}"> <img src="{{i.Photo.url}}" alt=""></a>
+                            <div class="slider_article">
+                              <h2><a class="slider_tittle" href="{% url 'detail' i.Id %}">{{i.Title}}</a></h2>
+                              <p>{{i.Summary}}</p>
+                            </div>
+                          </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        <!--=============-->
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="latest_post">
+          <h2><span>THẾ GIỚI</span></h2>
+          <div class="latest_post_container">
+            <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
+            <ul class="latest_postnav">
+                {% if post %}
+                    {% for i in post %}
+                        {% if i.CategoryId.CategoryName == "Thế giới" %}
+                              <li>
+                                <div class="media"> <a href="{% url 'detail' i.Id %}" class="media-left"> <img alt="" src="{{i.Photo.url}}"> </a>
+                                  <div class="media-body"> <a href="{% url 'detail' i.Id %}" class="catg_title">{{i.Title}}</a> </div>
+                                </div>
+                              </li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </ul>
+            <div id="next-button"><i class="fa  fa-chevron-down"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="left_content">
+          <div class="single_post_content">
+            <h2><span>KINH DOANH</span></h2>
+            <div class="single_post_content_left">
+              <ul class="business_catgnav  wow fadeInDown">
+                {% if post %}
+                    {% for i in post %}
+                        {% if i.CategoryId.CategoryName == "Kinh doanh" %}
+                <li>
+                  <figure class="bsbig_fig"> <a href="{% url 'detail' i.Id %}" class="featured_img"> <img alt="" src="{{i.Photo.url}}"> <span class="overlay"></span> </a>
+                    <figcaption> <a href="{% url 'detail' i.Id %}">{{i.Title}}</a> </figcaption>
+                    <p>{{i.Summary}}</p>
+                  </figure>
+                </li>
+                         {% endif %}
+                    {% endfor %}
+                {% endif %}
+              </ul>
+            </div>
+
+            <div class="single_post_content_right">
+              <ul class="spost_nav">
+                {% if post %}
+                    {% for i in post %}
+                        {% if i.CategoryId.CategoryName == "Kinh doanh" %}
+                <li>
+                  <div class="media wow fadeInDown"> <a href="{% url 'detail' i.Id %}" class="media-left"> <img alt="" src="{{i.Photo.url}}"> </a>
+                    <div class="media-body"> <a href="{% url 'detail' i.Id %}" class="catg_title">{{i.Title}}</a> </div>
+                  </div>
+                </li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+              </ul>
+            </div>
+          </div>
+          <div class="fashion_technology_area">
+            <div class="fashion">
+              <div class="single_post_content">
+                <h2><span>GIẢI TRÍ</span></h2>
+                <ul class="business_catgnav wow fadeInDown">
+            {% if post %}
+                {% for i in post %}
+                    {% if i.CategoryId.CategoryName == "Giải trí" %}
+                  <li>
+                    <figure class="bsbig_fig"> <a href="{% url 'detail' i.Id %}" class="featured_img"> <img alt="" src="{{i.Photo.url}}"> <span class="overlay"></span> </a>
+                      <figcaption> <a href="{% url 'detail' i.Id %}">{{i.Title}}</a> </figcaption>
+                      <p>{{i.Summary}}</p>
+                    </figure>
+                  </li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+                </ul>
+
+                <ul class="spost_nav">
+            {% if post %}
+                {% for i in post %}
+                    {% if i.CategoryId.CategoryName == "Giải trí" %}
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="{% url 'detail' i.Id %}" class="media-left"> <img alt="" src="{{i.Photo.url}}"> </a>
+                      <div class="media-body"> <a href="{% url 'detail' i.Id %}" class="catg_title">{{i.Title}}</a> </div>
+                    </div>
+                  </li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+                </ul>
+              </div>
+            </div>
+            <div class="technology">
+              <div class="single_post_content">
+                <h2><span>THỂ THAO</span></h2>
+                <ul class="business_catgnav">
+        {% if post %}
+            {% for i in post %}
+                {% if i.CategoryId.CategoryName == "Thể thao" %}
+                  <li>
+                    <figure class="bsbig_fig wow fadeInDown"> <a href="{% url 'detail' i.Id %}" class="featured_img"> <img alt="" src="{{i.Photo.url}}"> <span class="overlay"></span> </a>
+                      <figcaption> <a href="{% url 'detail' i.Id %}">{{i.Title}}</a> </figcaption>
+                      <p>{{i.Summary}}</p>
+                    </figure>
+                  </li>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+                </ul>
+                <ul class="spost_nav">
+        {% if post %}
+            {% for i in post %}
+                {% if i.CategoryId.CategoryName == "Thể thao" %}
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="{% url 'detail' i.Id %}" class="media-left"> <img alt="" src="{{i.Photo.url}}"> </a>
+                      <div class="media-body"> <a href="{% url 'detail' i.Id %}" class="catg_title">{{i.Title}}</a> </div>
+                    </div>
+                  </li>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="single_post_content">
+            <h2><span>Ảnh cười</span></h2>
+            <ul class="photograph_nav  wow fadeInDown">
+                {% if post %}
+                  {% for i in post %}
+                    {% if i.CategoryId.CategoryName == "Ảnh cười" %}
+                            <li>
+                              <div class="photo_grid">
+                                <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="{{i.Photo.url}}" title="{{i.Title}}"> <img src="{{i.Photo.url}}" alt=""/></a> </figure>
+                              </div>
+                            </li>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+            </ul>
+          </div>
+          <div class="single_post_content">
+            <h2><span>TÂM SỰ</span></h2>
+            <div class="single_post_content_left">
+              <ul class="business_catgnav">
+              {% if post %}
+                  {% for i in post %}
+                    {% if i.CategoryId.CategoryName == "Tâm sự" %}
+                <li>
+                  <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="{% url 'detail' i.Id %}"> <img src="{{i.Photo.url}}" alt=""> <span class="overlay"></span> </a>
+                    <figcaption> <a href="{% url 'detail' i.Id %}">{{i.Title}}</a> </figcaption>
+                    <p>{{i.Summary}}</p>
+                  </figure>
+                </li>
+                      {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </ul>
+            </div>
+            <div class="single_post_content_right">
+              <ul class="spost_nav">
+                {% if post %}
+                  {% for i in post %}
+                    {% if i.CategoryId.CategoryName == "Tâm sự" %}
+                <li>
+                  <div class="media wow fadeInDown"> <a href="{% url 'detail' i.Id %}" class="media-left"> <img alt="" src="{{i.Photo.url}}"> </a>
+                    <div class="media-body"> <a href="{% url 'detail' i.Id %}" class="catg_title">{{i.Title}}</a> </div>
+                  </div>
+                </li>
+                   {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <aside class="right_content">
+          <div class="single_sidebar">
+            <h2><span>XEM NHIỀU</span></h2>
+            <ul class="spost_nav">
+                {% if post %}
+                  {% for i in post %}
+                    {% if i.CategoryId.CategoryName == "Thể thao" %}
+              <li>
+                <div class="media wow fadeInDown"> <a href="{% url 'detail' i.Id %}" class="media-left"> <img alt="" src="{{i.Photo.url}}"> </a>
+                  <div class="media-body"> <a href="{% url 'detail' i.Id %}" class="catg_title">{{i.Title}}</a> </div>
+                </div>
+              </li>
+                       {% endif %}
+                  {% endfor %}
+                {% endif %}
+            </ul>
+          </div>
+          <div class="single_sidebar">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#category" aria-controls="home" role="tab" data-toggle="tab">Thể loại</a></li>
+              <li role="presentation"><a href="#video" aria-controls="profile" role="tab" data-toggle="tab">Video</a></li>
+              <li role="presentation"><a href="#comments" aria-controls="messages" role="tab" data-toggle="tab">Bình luận</a></li>
+            </ul>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="category">
+                <ul>
+            {% if post %}
+                {% for i in post %}
+                    <li class="cat-item"><a href="#">{{i.CategoryId.CategoryName}}</a></li>
+                {% endfor %}
+            {% endif %}
+                </ul>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="video">
+                <div class="vide_area">
+                  <iframe width="100%" height="250" src="http://www.youtube.com/embed/h5QWbURNEpA?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="comments">
+                <ul class="spost_nav">
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="#" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
+                      <div class="media-body"> <a href="#" class="catg_title"> comment 1</a> </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="#" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
+                      <div class="media-body"> <a href="#" class="catg_title"> comment 2</a> </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="#" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
+                      <div class="media-body"> <a href="#" class="catg_title"> commen 3</a> </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="#" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
+                      <div class="media-body"> <a href="#" class="catg_title"> comment 4</a> </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="single_sidebar wow fadeInDown">
+            <h2><span>Nhà tài trợ</span></h2>
+            <a class="sideAdd" href="#"><img src="images/add_img.jpg" alt=""></a> </div>
+          <div class="single_sidebar wow fadeInDown">
+            <h2><span>THỂ LOẠI</span></h2>
+            <select class="catgArchive">
+              <option>Lựa chọn thể loại</option>
+              <option>Life styles</option>
+              <option>Sports</option>
+              <option>Technology</option>
+              <option>Treads</option>
+            </select>
+          </div>
+          <div class="single_sidebar wow fadeInDown">
+            <h2><span>LIÊN KẾT</span></h2>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Rss Feed</a></li>
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Life &amp; Style</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+ {% endblock %}

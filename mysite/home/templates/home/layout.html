@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>8News – Tin tức thời sự, chính trị xã hội, đời sống chọn lọc 24h</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'home/assets/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'home/assets/css/font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'home/assets/css/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'home/assets/css/font.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'home/assets/css/li-scroller.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'home/assets/css/slick.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'home/assets/css/jquery.fancybox.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'home/assets/css/theme.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'home/assets/css/style.css' %}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+
+<div class="container">
+  <!-- start_header -->
+<div class="header">
+    <div class="bg_header_8news">
+            <a href="index.html"><img src="{% static 'home/images/8news_logo.png' %}" alt="NetNews – Tin tức thời sự, chính trị xã hội, đời sống chọn lọc 24h"></a>
+    </div>
+    <div class="clear"></div>
+</div>
+ 
+<!-- end_header -->
+{% block content %}
+  {% endblock %}
+  <!-- start_footer -->
+  <footer id="footer">
+    <div class="footer_top">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="footer_widget wow fadeInLeftBig">
+            <h2>Ảnh Flickr </h2>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="footer_widget wow fadeInDown">
+            <h2>Thẻ</h2>
+            <ul class="tag_nav">
+              <li><a href="#">Thời sự</a></li>
+              <li><a href="#">Giải trí</a></li>
+              <li><a href="#">Pháp luật</a></li>
+              <li><a href="#">Thế giới</a></li>
+              <li><a href="#">Thể thao &amp; Style</a></li>
+              <li><a href="#">Quân sự</a></li>
+              <li><a href="#">Tâm sự</a></li>
+              <li><a href="#">Ảnh cười</a></li>
+              <li><a href="#">Kinh doanh</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="footer_widget wow fadeInRightBig">
+            <h2>Liên hệ</h2>
+            <p>Trang thông tin tin tức tổng hợp 8news.vn.</p>
+            <address>
+            số 11 - Võ Thị Sáu - Bến Thủy - Vinh - Nghệ An
+            </address>
+            <p>Điện thoại liên hệ: 0866070097.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_bottom">
+      <p class="copyright">Copyright &copy; NetNews <a href="index.html">8News</a></p>
+      <p class="developer">Developed By 8Group</p>
+    </div>
+  </footer>
+    <!-- end_footer -->
+</div>
+
+<script src="{% static 'home/assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'home/assets/js/wow.min.js' %}"></script>
+<script src="{% static 'home/assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'home/assets/js/slick.min.js' %}"></script>
+<script src="{% static 'home/assets/js/jquery.li-scroller.1.0.js' %}"></script>
+<script src="{% static 'home/assets/js/jquery.newsTicker.min.js' %}"></script>
+<script src="{% static 'home/assets/js/jquery.fancybox.pack.js' %}"></script>
+<script src="{% static 'home/assets/js/custom.js' %}"></script>
+</body>
+</html>
